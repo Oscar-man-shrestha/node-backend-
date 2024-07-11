@@ -41,14 +41,18 @@ nav ul li a {
 
 main {
     padding: 2em;
+
 }
 
 section {
     margin-bottom: 2em;
+
+   
 }
 
 .card-container {
     display: flex;
+    
     flex-wrap: wrap;
     justify-content: space-around;
 }
@@ -119,23 +123,30 @@ footer p {
          
             </section>
             <section id="blog">
+              
                 <h1>Blog Posts</h1>
                 <div class="card-container">
                     <div class="card">
                         <img src="post1.jpg" alt="Post 1 Image">
+
+
+
+
+
+                       <% blogs.forEach((blog)=>{ %>
                         <div class="card-content">
-                            <h2>Blog Post Title 1</h2>
-                            <p>Short description of the blog post.</p>
+                            <h1><%- blog.title %></h1>
+                            <h4><%- blog.description %></h4>
+                            <p><%- blog.subTitle %></p>
                             <a href="#">Read More</a>
                         </div>
+                   <% }) %>
+
+
+
+
                     </div>
-                    <div class="card">
-                        <img src="post2.jpg" alt="Post 2 Image">
-                        <div class="card-content">
-                            <h2>Blog Post Title 2</h2>
-                            <p>Short description of the blog post.</p>
-                            <a href="#">Read More</a>
-                        </div>
+                    
                     </div>
                     <!-- Add more cards as needed -->
                 </div>

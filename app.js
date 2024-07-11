@@ -1,20 +1,78 @@
-// // const express = require('express')   //alternate
-// // const app = express()
+ const express = require('express')   //alternate
+ const app = express()
 
-const app = require ('express')()
+
 const name = require ('ejs')
-require("./model/index.js ")
+const { blogs, users } = require('./model/index')
+require("./model/index")
 //telling node js to set its viiew engine to ejs
 app.set ('view engine','ejs')
+app.use (express.urlencoded({extended:true}))
+
 //HOME
-app.get ("/",(req,res)=>{
-    res.render("HOME")
+app.get ("/",async(req,res)=>{
+
+        //blogs table bata data (row) nikalnu paryo ani home page lai pass garnu paryo
+
+        const blogsTableBLogs=await blogs.findAll()
+    res.render("HOME",{blogs : blogsTableBLogs})
 
 })
-app.get ("/about",(req,res)=>{
-    res.render("about")
+app.get("/addblog",(req,res)=>{
 
+
+    res.render("./addBlog")
 })
+app.post("/addblog",async(req,res)=>{
+
+// const title = req.body.titile
+// const subTitle = req.body.subTitle
+// const description = req.body.description
+// console.log(title,subTitle,description)
+
+const {title,subTitle,description}=req.body
+ console.log(title,subTitle,description)
+ if (!title || !subTitle || !description){
+    return res.send("please provide proper information")
+ }
+
+
+  // Inserting into blogs tables
+
+  await blogs.create ({
+    title :title,
+    subTitle : subTitle,
+    description:description,
+
+  })
+  res.redirect("/")
+
+
+ })
+
+ app.get("/user",(req,res)=>{
+    res.render("./user")
+})
+app.post("/user",async(req,res)=>{
+    const {name,email,password}=req.body
+    console.log(name,email,password)
+
+await users.create ({
+  name :name,
+  email :email,
+  password :password,
+}) 
+ res.send("added to list")
+ })
+ 
+
+
+
+
+
+
+
+
 
 const PORT = 3000
 app.listen(PORT,()=>{
