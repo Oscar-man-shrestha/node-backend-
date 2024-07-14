@@ -55,6 +55,9 @@ section {
     
     flex-wrap: wrap;
     justify-content: space-around;
+    width: 100%;
+    height: 400px;
+
 }
 
 .card {
@@ -62,9 +65,14 @@ section {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     margin: 1em;
-    max-width: 300px;
+    max-width: 100vw;
     overflow: hidden;
     transition: transform 0.2s;
+    display: flex;
+    width: 100%;
+    gap: 100px;
+    height: 300px;
+
 }
 
 .card img {
@@ -74,10 +82,14 @@ section {
 
 .card-content {
     padding: 1em;
+    height: 300px;
+    width: 100%;
+   
 }
 
 .card h2 {
     margin: 0 0 0.5em 0;
+    
 }
 
 .card p {
@@ -88,6 +100,8 @@ section {
     text-decoration: none;
     color: #3498db;
     font-weight: bold;
+    height: 300px;
+    width: 100%;
 }
 
 .card:hover {
@@ -109,8 +123,8 @@ footer p {
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="">SignUp</a></li>
+                    <li><a href="/addBlog">write Blog</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -127,18 +141,12 @@ footer p {
                 <h1>Blog Posts</h1>
                 <div class="card-container">
                     <div class="card">
-                        <img src="post1.jpg" alt="Post 1 Image">
-
-
-
-
 
                        <% blogs.forEach((blog)=>{ %>
                         <div class="card-content">
                             <h1><%- blog.title %></h1>
-                            <h4><%- blog.description %></h4>
                             <p><%- blog.subTitle %></p>
-                            <a href="#">Read More</a>
+                            <a href="/blog/<%-blog.id %>">Read More</a>
                         </div>
                    <% }) %>
 

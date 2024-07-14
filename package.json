@@ -13,10 +13,8 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "killport": "^1.0.2",
+    "multer": "^1.4.5-lts.1",
     "mysql2": "^3.10.2",
-    "nodeh": "^1.0.1",
-    "nodemon": "^3.1.4",
     "sequelize": "^6.37.3"
   }
 }
