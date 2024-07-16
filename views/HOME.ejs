@@ -6,118 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My Blog</title>
         <!-- <meta http-equiv="refresh" content="0.5"> -->
+         <link rel="stylesheet" href="/styles/home.css">
 
     </head>
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header, footer {
-    background-color: #333;
-    color: #fff;
-    padding: 1em 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 1em;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-main {
-    padding: 2em;
-
-}
-
-section {
-    margin-bottom: 2em;
-
    
-}
-
-.card-container {
-    display: flex;
-    
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
-    height: 400px;
-
-}
-
-.card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin: 1em;
-    max-width: 100vw;
-    overflow: hidden;
-    transition: transform 0.2s;
-    display: flex;
-    width: 100%;
-    gap: 100px;
-    height: 300px;
-
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-}
-
-.card-content {
-    padding: 1em;
-    height: 300px;
-    width: 100%;
-   
-}
-
-.card h2 {
-    margin: 0 0 0.5em 0;
-    
-}
-
-.card p {
-    color: #666;
-}
-
-.card a {
-    text-decoration: none;
-    color: #3498db;
-    font-weight: bold;
-    height: 300px;
-    width: 100%;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-footer nav ul {
-    justify-content: center;
-    margin-bottom: 1em;
-}
-
-footer p {
-    text-align: center;
-}
-
-    </style>
     <body>
         <header>
             <nav>
@@ -143,7 +35,9 @@ footer p {
                     <div class="card">
 
                        <% blogs.forEach((blog)=>{ %>
+
                         <div class="card-content">
+                            <img src="<%- blog.image %>" alt="" width="150",height="150">
                             <h1><%- blog.title %></h1>
                             <p><%- blog.subTitle %></p>
                             <a href="/blog/<%-blog.id %>">Read More</a>
