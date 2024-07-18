@@ -1,0 +1,67 @@
+const express = require("express"); //alternate
+const app = express();
+//link gareko blogRoute
+const blogRoute = require('./routes/blogRoute')
+
+const name = require("ejs");
+const { where } = require("sequelize");
+
+
+// requiring dotenv
+require("dotenv").config()
+
+
+
+
+
+require("./model/index");
+
+
+//telling node js to set its viiew engine to ejs
+app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
+
+
+//--------------------------------------------------------------------------------------
+
+
+// //HOME
+// app.get("/",renderHome)
+
+// //add blog 
+
+// app.get("/addblog",renderaddBlog)
+
+// app.post("/addblog",upload.single('image'), postAddblog)
+
+
+// //single blog
+
+// app.get("/blog/:id",singleBlog)
+
+
+// // delet garnu
+
+// app.get("/delet/:id", deletBlog)
+
+// //update garnu
+
+//  app.get("/update/:id",Update)
+
+//  app.post("/update/:id",update)
+ 
+
+//This is the code to give excess to node of files
+
+app.use(express.static ("./uploads"))
+app.use (express.static (__dirname +'/public') )
+
+
+// app.use("hello",blogRoute)   // /hello + /addblog
+app.use("",blogRoute)
+
+//port ka kholne tesko code.
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Node JS has start at port ${PORT}`);
+});

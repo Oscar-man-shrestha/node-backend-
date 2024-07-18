@@ -60,8 +60,9 @@ body {
     transition: transform 0.2s;
     display: flex;
     width: 100%;
-    gap: 100px;
+ 
     height: 100vh;
+
     
     }
     
