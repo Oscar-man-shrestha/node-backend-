@@ -1,4 +1,5 @@
-const { renderHome, renderaddBlog, postAddblog, singleBlog, deletBlog, Update, update } = require('../controller/blog/blogController')
+const { renderHome, renderaddBlog, postAddblog, singleBlog, deletBlog, Update, update } = require('../controller/blog/blogController');
+const { isauthenticated } = require('../middleware/isAuthenticated');
 
 
 //import gareko multer ko file
@@ -17,7 +18,7 @@ const upload = multer ({storage : storage})   //multer ko storage lai mero stora
 
 
 router.route ('/').get(renderHome)
-router.route('/addblog').get(renderaddBlog).post(upload.single('image'), postAddblog)
+router.route('/addblog').get(renderaddBlog).post(upload.single('image'), isauthenticated , postAddblog)
 router.route('/blog/:id').get(singleBlog)
 router.route('/delet/:id').get(deletBlog)
 router.route('/update/:id').get(Update).post(update)

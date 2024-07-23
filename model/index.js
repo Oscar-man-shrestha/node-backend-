@@ -34,11 +34,14 @@ db.sequelize = sequelize;
 db.blogs = require("./blogModel.js")(sequelize, DataTypes);
 db.users = require("./userModel.js")(sequelize, DataTypes);
 
+//relationship
 
+db.users.hasMany(db.blogs)   //auta user ko dherai ota blog huna sakxa
+db.blogs.belongsTo(db.users)  //each blog kunai user snga associate huna sakxa
 
 
 db.sequelize.sync({ force: false}).then(() => {
   console.log("yes re-sync done");
 });
 
-module.exports = db;
+module.exports = db ;

@@ -1,6 +1,6 @@
 const express = require("express"); //alternate
 const app = express();
-
+const cookieParser = require('cookie-parser')
 //link gareko blogRoute
 const blogRoute = require('./routes/blogRoute')
 const userRoute = require ('./routes/userRoute')
@@ -18,7 +18,7 @@ require("./model/index");
 //telling node js to set its viiew engine to ejs
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
-
+app.use (cookieParser())
 
 //--------------------------------------------------------------------------------------
 

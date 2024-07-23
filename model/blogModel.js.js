@@ -1,3 +1,5 @@
+const { type } = require("os");
+
 module.exports = (sequelize, DataTypes) => {
     const Blog = sequelize.define("blog", {
       title: {
@@ -16,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         type:DataTypes.STRING,
         
       }
-    
+
     });
     return Blog;
   };

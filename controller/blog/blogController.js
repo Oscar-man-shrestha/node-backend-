@@ -15,7 +15,7 @@ exports.renderHome = async (req, res) => {
 
 
   exports.postAddblog=async (req, res) => {  //using upload variable here!! 
-    console.log(req.file)
+const userId = req.userId 
     
     // const title = req.body.titile
     // const subTitle = req.body.subTitle
@@ -35,6 +35,7 @@ exports.renderHome = async (req, res) => {
       subTitle: subTitle,
       description: description,
       image : process.env.backendUrl + req.file.filename,
+      userId : userId
     });
     res.redirect("/");
   };
