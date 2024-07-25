@@ -33,7 +33,7 @@ label{
   
  }
  .form{
-        height: 43vh;
+        height: fit-content;
        width: 50%;
     background-color: white;
     padding: 46px;

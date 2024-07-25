@@ -28,6 +28,19 @@ app.use(express.static ("./uploads"))
 app.use (express.static (__dirname +'/public') )
 
 
+
+
+app.use((req,res,next)=>{
+ res.locals.currentUser = req.cookies.token  //token xa ki nai check gareko local use garera aba ja pani use(check) garna painxa
+  next()
+})
+
+
+
+
+
+
+
 // app.use("hello",blogRoute)   // /hello + /addblog
 app.use("",blogRoute)
 app.use("",userRoute)

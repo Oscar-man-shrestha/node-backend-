@@ -11,38 +11,34 @@
     </head>
    
     <body>
-        <header>
-            <nav>
-        
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="./register">Register</a></li>
-                    <li><a href="/addBlog">write Blog</a></li>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
+       <%- include ("navbar") %>
+       <div class="header">
             <section id="home">
+                
+                
                 <h1>Welcome to My Blog</h1>
-                <p>This is the homepage.</p>
+                <p></p>
             </section>
-         
+        </div>
             </section>
+
             <section id="blog">
               
                 <h1>Blog Posts</h1>
+                <section id="main">
                 <div class="card-container">
                     <div class="card">
 
                        <% blogs.forEach((blog)=>{ %>
 
-                        <div class="card-content">
+                        <div class="card-content right">
                             <img src="<%- blog.image %>" alt="" width="150",height="150">
+                            <div class="card-content left">
                             <h1><%- blog.title %></h1>
                             <p><%- blog.subTitle %></p>
+                            <p>Author : <%- blog.user.username %></p>
                             <a href="/blog/<%-blog.id %>">Read More</a>
+                        </div>
                         </div>
                    <% }) %>
 
@@ -52,13 +48,11 @@
                     </div>
                     
                     </div>
+                </section>
                     <!-- Add more cards as needed -->
                 </div>
             </section>
-            <section id="contact">
-                <h1>Contact</h1>
-                <p>Contact information.</p>
-            </section>
+           
         </main>
   <%-include ("footer")-%>
     </body>

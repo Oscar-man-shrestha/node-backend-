@@ -110,16 +110,7 @@ text-align: center;
 
 </style>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/addBlog">Write Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <%- include ("navbar") %>
     <main>
         <section id="home">
             <h1>Welcome to My Blog</h1>
@@ -138,8 +129,11 @@ text-align: center;
                         <h1><%-blog[0].title %></h1>
                         <h4><%- blog[0].description %></h4>
                         <p><%- blog[0] .subTitle %></p>
-                      <button><a href="/delet/<%- blog[0].id %>">  Delet This</a></button>
-                      <button><a href="/update/<%- blog[0].id %>">  Update This</a></button>
+                        <p>Author : <%- blog[0].user.username %></p>
+                     <% if(currentUser) { %>       <!--  if current user vannale login xa vane matra ya cookie xa vane matra -->
+                        <button><a href="/delet/<%- blog[0].id %>">  Delet This</a></button>
+                        <button><a href="/update/<%- blog[0].id %>">  Update This</a></button>
+                        <% } %>
                     </div>
              
 

@@ -8,9 +8,17 @@ body {
     }
     
     header, footer {
-    background-color: #333;
+    background-color: #320a0a;
     color: #fff;
     padding: 1em 0;
+    }
+    .header h1{
+        color: #0027e9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 30px;
     }
     
     nav ul {
@@ -33,7 +41,15 @@ body {
     padding: 2em;
     
     }
+    #blog h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+ header.h1{
     
+        background-color: red;
+    }
     section {
     margin-bottom: 2em;
     
@@ -67,14 +83,29 @@ body {
     }
     
     .card img {
-    width: 100%;
-    height: auto;
+    width: 340px;
+    height: 300px;
     }
     
     .card-content {
     padding: 1em;
     height: 700px;
     width: 100%;
+    
+    }
+    .card-content .left h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-content .left p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-content .left a{
+        display: flex;
+        justify-content: center;
     
     }
     

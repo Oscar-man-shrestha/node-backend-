@@ -1,0 +1,15 @@
+<header>
+    <nav>
+
+        <ul>
+            <li><a href="/">Home</a></li>
+           <% if(currentUser){ %>                      <!-- if currentUser vannale cookie ya login xa vanne matra vaneko if vaneko -->
+            <li><a href="/addBlog">write Blog</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <%  }else{ %>
+            <li><a href="./register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+            <%  } %>
+        </ul>
+    </nav>
+</header>

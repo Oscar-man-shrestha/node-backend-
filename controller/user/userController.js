@@ -1,6 +1,7 @@
 const { users } = require("../../model");
 const bcrypt = require("bcryptjs");
-const jwt= require("jsonwebtoken")
+const jwt= require("jsonwebtoken");
+const sendEmail = require("../../services/sendEmail");
 exports.renderRegisterForm = (req, res) => {
   res.render("register");
 };
@@ -52,11 +53,41 @@ exports.loginUser = async (req, res) => {
         expiresIn : '1d'
       })
   res.cookie('token',token)
-  res.send("logged in successful")
+  res.redirect('/')
       
     
     } else {
       res.send("Email or password is invalid");
     }
   }
+}
+
+exports.logOutUser = (req,res)=>{
+  res.clearCookie('token')
+  res.redirect('/')
+}
+
+
+//all about forget passoword and sending OTP
+
+exports.forgetPassword = (req,res)=>{
+  res.render('forgetPassword')
+}
+
+exports.handleForgetPassword = async (req,res)=>{
+  const {email} = req.body;
+  if(!email){
+   return res.send("Provide email")
+  }
+  const data = {              //object banayara pass gareko sendemail.js lai to make reusable
+    email : email,
+    subject : "Your Forget Password OTP ",
+    text : "Your OTP is : "+123
+  }
+
+  //tyo email ma OTP pathaune
+  await sendEmail(data)   //object lai as a argumnet pass garko data ko naam garera to sendemail.js
+  res.send ("OTP sent successfully")
+  
+
 }

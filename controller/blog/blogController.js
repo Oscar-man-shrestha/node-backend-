@@ -1,11 +1,18 @@
-const { blogs } = require("../../model");
+const { Model } = require("sequelize");
+const { blogs, users } = require("../../model");
 
 
 exports.renderHome = async (req, res) => {
 
     //blogs table bata data (row) nikalnu paryo ani home page lai pass garnu paryo
-    const blogsTableBLogs = await blogs.findAll();
-    res.render("HOME", { blogs: blogsTableBLogs });
+    const blogsTableBLogs = await blogs.findAll({
+      include : {
+        model:users            //user table ko information taneko blog snga jodeko!!
+      }
+    })
+    
+
+    res.render("HOME", { blogs: blogsTableBLogs }); 
   
   }
 
@@ -48,6 +55,9 @@ const userId = req.userId
         id: id,
         
       },
+      include : {             //user table ko information taneko blog snga jodeko!!
+      model:users
+      }
     });
     console.log(foundData);
     res.render("singleBlog", { blog: foundData });
